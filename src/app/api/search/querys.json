@@ -1,0 +1,51 @@
+// Todos
+{
+  "size": 10,
+  "query": {
+    "match_all": {}
+  }
+}
+
+// Apenas "q"
+{
+  "size": 10,
+  "query": {
+    "bool": {
+      "minimum_should_match": 1,
+      "should": [
+        {
+          "multi_match": {
+            "query": "resumos",
+            "type": "phrase",
+            "fields": [
+              "title^2"
+            ]
+          }
+        },
+        {
+          "multi_match": {
+            "query": "resumos",
+            "fields": [
+              "subject",
+              "personal_name_main.name",
+              "personal_name_added.name"
+            ],
+            "type": "best_fields",
+            "fuzziness": "AUTO"
+          }
+        }
+      ]
+    }
+  }
+}
+
+// Apenas fromYear
+{
+  "query": {
+    "range": {
+      "publication_year": {
+        "gte": 2000
+      }
+    }
+  }
+}
