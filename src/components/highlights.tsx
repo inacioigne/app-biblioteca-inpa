@@ -14,9 +14,9 @@ interface Book {
 const books: Book[] = [
     {
         id: 1,
-        title: "A neotropical companion",
-        author: "Kricher, John C",
-        cover: "https://catalogo.inpa.gov.br/img/e69/p03/11.jpg",
+        title: "Amazonia - Sebastião Salgado",
+        author: "Sebastião Salgado",
+        cover: "https://m.media-amazon.com/images/I/41hl7PQQdML._SY445_SX342_.jpg",
         rating: 4.5
     },
     {
@@ -88,7 +88,6 @@ export default function Highlights() {
                     mb: 4,
                     height: {
                         xs: 'auto',
-                        // sm: '300px'
                     }
                 }}
                 onMouseEnter={() => setIsHidden(true)}
